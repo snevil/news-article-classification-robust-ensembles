@@ -1,0 +1,30 @@
+# News Article Classification – Preprocessing (v1)
+
+This repository contains the first preprocessing step for the Data Science and Machine Learning Lab project at Politecnico di Torino.
+
+## Overview
+In this version (v1), we focus on preparing the development dataset for subsequent exploratory analysis and modeling. The preprocessing is intentionally lightweight and fully reproducible, avoiding unnecessary linguistic transformations.
+
+## Preprocessing steps
+The following operations are applied:
+
+- **Text cleaning**
+  - Removal of HTML tags and embedded hyperlinks using *BeautifulSoup*
+  - Decoding of HTML entities
+  - Lowercasing and normalization of whitespace
+  - Concatenation of `title` and `article` into a single text field
+
+- **Timestamp handling**
+  - Conversion of invalid timestamps (e.g. `0000-00-00 00:00:00`) to missing values (the missing one are with median attribute)
+  - Extraction of simple temporal features (`year`, `month`)
+  - Addition of a binary flag indicating timestamp availability
+
+- **Missing values**
+  - Minimal handling of missing textual fields through empty-string imputation
+  - No row removal is performed
+
+## Output
+The preprocessed development dataset is saved programmatically and used as input for the subsequent EDA and modeling steps.
+
+## Notes
+This preprocessing stage is designed to remove structural noise while preserving the original lexical and semantic content of the articles. No advanced NLP parsing or external data sources are used.
