@@ -1,10 +1,14 @@
 # News Article Classification – Preprocessing (v1)
 
 This repository contains the first preprocessing step for the Data Science and Machine Learning Lab project at Politecnico di Torino.
+
+## UPDATE: There is a new best model, I tried very time but I think the plateau is reached. It is very simple to explain, only a good EDA to support it and that's all. Tomorrow I wil do the final introduction, convalidate it with optuna and start to write the final report
+
 ## In SRC there are basical EDA stuff
 # The best model is in v3Code/little_aggressive.ipybn 
 The data one have to been fixed becouse i used too much feature engeneering but basically the final model is the raw one, plus some FE on Timestamp. I didn't fine some best model with all experiment with other FE data (clustering, a priori, tokenization etc). They downgrade the model. In the section it use basically the first dataset without other features. 
 Right now I'm tring to get some extra. To push on 0.732. I think there are correlation with timestamp. 
+ 
 ## Overview
 In this version (v1), we focus on preparing the development dataset for subsequent exploratory analysis and modeling. The preprocessing is intentionally lightweight and fully reproducible, avoiding unnecessary linguistic transformations.
 
