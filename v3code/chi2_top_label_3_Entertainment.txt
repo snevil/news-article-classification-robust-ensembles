@@ -1,0 +1,100 @@
+ART_rss entertainment	461.513462
+ART_entertainment http	461.513462
+ART_entertainment	410.341862
+ART_film	408.474460
+ART_hollywood	283.635726
+TTL_movie	238.342369
+ART_feeds arts	225.535877
+TTL_film	215.013946
+ART_actor	208.921936
+ART_actress	179.018590
+ART_movie	176.414604
+TTL_movie review	173.918122
+ART_hollywood reporter	172.834492
+ART_singer	163.968790
+ART_angeles	158.744937
+ART_los angeles	158.124937
+ART_los	157.158287
+ART_awards	145.538633
+ART_arts	142.797926
+TTL_box office	142.190776
+ART_angeles hollywood	130.641606
+TTL_review	121.958508
+ART_comedy	117.520979
+ART_album	115.717180
+ART_star	115.301575
+ART_festival	113.737842
+TTL_music	112.479842
+TTL_album	111.275266
+TTL_actor	110.190941
+ART_reporter	103.574837
+ART_musical	103.445885
+TTL_hollywood	101.896915
+ART_film festival	101.047321
+TTL_box	100.610538
+TTL_oscar	99.788303
+ART_box office	95.168747
+TTL_bollywood	93.835158
+ART_pop	92.639817
+ART_films	91.759753
+ART_ap_en_ce	91.277522
+ART_actors	90.918890
+ART_writers	90.190113
+ART_movies	88.422810
+ART_documentary	85.484222
+TTL_awards	84.141194
+ART_fashion	82.451216
+ART_music	80.377297
+TTL_films	79.214605
+TTL_quot	78.026724
+TTL_music review	77.991671
+ART_reuters lifestyle	76.973837
+ART_drama	76.759111
+ART_time entertainment	76.109294
+TTL_fashion	75.679244
+TTL_39	75.513967
+ART_quot	75.260195
+TTL_broadway	74.901735
+ART_ap_en_mu	74.474170
+TTL_arts briefly	74.241502
+ART_nbc	73.824318
+ART_ap_en_tv	73.712047
+ART_angeles reuters	73.458629
+TTL_actress	73.302982
+ART_reuters entertainment	72.258256
+TTL_jackson	71.145836
+ART_billboard	70.832101
+ART_oscar	70.438619
+ART_bollywood	70.235710
+TTL_nbc	69.269566
+TTL_director	69.041062
+ART_ap_en_ot	68.562220
+ART_broadway	67.439932
+TTL_singer	67.431348
+TTL_madonna	67.362145
+TTL_art	66.854342
+TTL_playbill	66.559160
+TTL_cbs	66.288141
+ART_ap_en_mo	64.922337
+TTL_idol	64.723356
+ART_theater	64.442351
+ART_premiere	64.060557
+TTL_pagesix	63.767230
+ART_new film	63.734320
+TTL_reuters	63.667887
+ART_rapper	63.407399
+ART_band	62.557076
+TTL_writers	61.407938
+TTL_spears	59.806051
+TTL_star	58.712029
+TTL_wire daily	58.596443
+TTL_fashion wire	58.596443
+ART_box	57.525821
+ART_starring	57.304927
+ART_thriller	56.418414
+ART_studio	55.350766
+TTL_festival	54.790474
+TTL_jolie	54.770782
+ART_jackson	54.193758
+ART_director	53.708098
+ART_guild	53.511674

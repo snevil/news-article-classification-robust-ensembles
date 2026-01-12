@@ -1,0 +1,100 @@
+TTL_afp	782.221897
+ART_afp	463.886998
+TTL_ap	359.692682
+ART_com afp	227.238835
+ART_rss world	214.464533
+ART_world http	200.338741
+ART_minister	190.782004
+ART_ap	184.601011
+ART_rss europe	163.853442
+ART_europe http	163.853442
+ART_yimg	154.008643
+ART_yimg com	154.008643
+ART_yahoo com	153.672018
+ART_130	153.097761
+ART_prime minister	152.192918
+ART_president	143.835314
+ART_prime	142.426108
+ART_photo default	137.149766
+ART_capt sge	135.367134
+ART_sge	135.367134
+ART_border afp	132.554795
+ART_photo00	132.080192
+ART_photo00 photo	132.080192
+ART_yahoo	131.672841
+ART_default	130.758864
+ART_europe	126.312024
+TTL_iraq	120.936594
+ART_presidential	113.948623
+ART_iraq	107.958954
+ART_elections	104.258500
+ART_capt	102.732313
+ART_police	102.328973
+TTL_canadian press	100.623822
+TTL_darfur	97.764880
+ART_killed	92.619367
+ART_jpg 130	92.530035
+ART_130 alt	92.249591
+ART_width 130	92.249591
+ART_politics http	92.005225
+ART_rss politics	92.005225
+ART_wl_uk_afp	91.836510
+ART_rd yahoo	90.984064
+ART_http rd	90.984064
+ART_com dailynews	90.984064
+ART_dailynews	90.984064
+ART_dailynews rss	90.959985
+ART_left height	90.959985
+ART_rd	90.909234
+ART_news yahoo	90.859057
+ART_align left	90.857544
+ART_jpg	90.802592
+ART_sig	90.656705
+ART_http news	90.649822
+ART_http yimg	89.506417
+ART_com yimg	89.492261
+ART_br	89.026299
+ART_photo	88.937899
+ART_afp file	87.185959
+ART_feeds world	86.939407
+TTL_pm	85.243515
+ART_democratic	85.081198
+ART_br clear	83.739353
+ART_politics	82.919764
+ART_http feeds	80.214810
+TTL_press	80.123010
+ART_align	78.498664
+ART_military	78.377214
+TTL_microsoft	76.886446
+TTL_afghanistan	76.014224
+TTL_eu	75.932494
+TTL_sudan	75.835189
+ART_party	75.110458
+ART_clear	74.902665
+ART_39	74.462779
+ART_feeds usa	73.533681
+ART_left	72.286520
+ART_cnn	72.008598
+TTL_iran	71.402709
+ART_republican	70.904500
+ART_election	70.792630
+TTL_election	70.160961
+TTL_killed	70.059864
+TTL_terror	68.159203
+ART_csmonitor	68.038405
+ART_csmonitor com	68.038405
+TTL_russia	67.940136
+TTL_police	67.821883
+ART_rss csmonitor	67.605800
+TTL_british	67.530058
+ART_presidential hopeful	66.488143
+ART_government	66.328718
+ART_darfur	64.798566
+TTL_pakistan	64.243964
+ART_rss http	63.900886
+ART_sudan	63.317224
+ART_foreign	63.272866
+TTL_bomb	62.767697
+TTL_leader	62.710932
+ART_canadian press	62.686917
+ART_israeli	62.665038
