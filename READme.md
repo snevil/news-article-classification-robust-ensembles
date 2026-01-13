@@ -12,6 +12,49 @@ Right now I'm tring to get some extra. To push on 0.732. I think there are corre
 ## Overview
 In this version (v1), we focus on preparing the development dataset for subsequent exploratory analysis and modeling. The preprocessing is intentionally lightweight and fully reproducible, avoiding unnecessary linguistic transformations.
 
+EDA: 
+We can do EDA in this order: 
+Check null (timestamp), looking that there are some valuation, but the deterministic impact is lower 
+Check token, best words and coditional entropy 
+Chek Title and source token 
+We can say that Thecnology label has a quasi deterministic correlation. 
+We can say there are duplicate in dataset, but we chose to not drop it (I sow there are the same distribution on eval so drop down them is slippery)
+Source analysis (show them some website appears also in the text) 
+Pipeline: 
+We do some data clening to better mine the HREF tag 
+After a simple FE trasformation to bettere perform with tokenization
+We use source becouse is label deterministic
+
+We use Logistic regression, becouse SVD cutting down all variability
+BASELINE RESULT IN COMP 0.723
+
+Explain the TWO Stage model: why is important and why it impact 
+(It search with some strategy where the parameter is risky) 
+Hyrparameter tuning (optuna bayesian search) 
+Result 0.731 This is the roof of linear model search, we tryed to include TIMESTAP to interract but it overfit. Other strategy they overfit and likage the prediction. The cross fold analysys say that the result is stable e replicable. (some Lebal are overlapped so it cannot reach the full determination and some article are republished in oreder to TIMESTAMP and the label is not deterministich, so it is impossibile to predict) 
+
+Best result for Tecnlogy class and Health class with avarega precision of 84% (so almost the top). The most crucial information of Tecnolgy was not the text but the editorial style(h4 and div tag) 
+Healt by the words. 
+0-5 are more rapresentative 
+To motivate the Two Stage Pipeline 
+Motivate the cutting edge strategy. 
+
+
+3 Stage Bert embedded with 
+Why finally use the embedded with Bert NPL model, and we reach 0.733 accuracy 
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Preprocessing steps
 The following operations are applied:
 
