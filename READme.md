@@ -2,7 +2,7 @@
 
 This repository contains the first preprocessing step for the Data Science and Machine Learning Lab project at Politecnico di Torino.
 
-## UPDATE: There is a new best model, I tried very time but I think the plateau is reached. It is very simple to explain, only a good EDA to support it and that's all. Tomorrow I wil do the final introduction, convalidate it with optuna and start to write the final report
+## UPDATE: There is a new best model, I tried very time but I think the plateau is reached. It is very simple to explain, only a good EDA to support it and that's all. Tomorrow I wil do the final introduction, convalidate it with optuna and start to write the final report repo in v5/best_model_full_pipeline.ipynb
 
 ## In SRC there are basical EDA stuff
 # The best model is in v3Code/little_aggressive.ipybn 
