@@ -41,7 +41,8 @@ The dataset consists of online news articles described by:
 - `source`  
 - `timestamp`  
 - `label` (7 classes)
-- `PageRank` 
+- `PageRank`
+ 
 The task is multi-class classification evaluated using **Macro F1**, which strongly penalizes systematic class confusion and makes the problem particularly sensitive to overlapping semantic content.
 
 ---
