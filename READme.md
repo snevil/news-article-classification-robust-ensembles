@@ -8,6 +8,27 @@ The work progresses from a lightweight and fully reproducible preprocessing stag
 The project is structured as a *progressive exploration of model capacity*, rather than a pure hyperparameter tuning exercise.
 
 ---
+## Project Structure
+
+The repository is organized to clearly separate data, preprocessing, modeling pipelines, and experimental work.
+
+.
+├── data/
+│   ├── raw/                  # Original dataset (as provided)
+│   ├── processed/            # Cleaned and feature-engineered datasets
+│   └── submission/           # Final CSV files submitted to the leaderboard
+│
+├── src/
+│   ├── EDA.ipynb             # Exploratory Data Analysis
+│   ├── preprocessing.ipynb   # Base preprocessing pipeline
+│   ├── preprocessing_and_FE/ # Feature engineering and dataset construction
+│   │
+│   ├── baseline/             # Baseline linear models
+│   ├── TwoStage/             # Two-Stage linear pipeline (rules + LR)
+│   ├── Three_Stage_with_bert/# Three-Stage model with BERT embeddings
+│   └── deberta_prediction/   # Contextual model experiments (DeBERTa)
+│
+└── experiments/              # Exploratory notebooks and ablation studies
 
 ## Project Overview
 
