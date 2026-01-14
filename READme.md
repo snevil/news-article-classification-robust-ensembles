@@ -28,9 +28,9 @@ The task is multi-class classification evaluated using **Macro F1**, which stron
 | Model                               | Macro F1 |
 |-------------------------------------|----------|
 | Baseline Logistic Regression        | 0.718    |
-| Tuned Logistic Regression           | 0.725    |
-| Two-Stage Linear Model              | 0.728    |
-| Three-Stage Model (BERT embeddings)| 0.731    |
+| Tuned Logistic Regression           | 0.728   |
+| Two-Stage Linear Model              | 0.731    
+| Three-Stage Model (BERT embeddings)| 0.733    |
 | Final Model (RoBERTa fine-tuned)    | 0.745    |
 
 The results show a clear plateau around **0.72–0.73** for linear models, followed by a regime change when contextual neural representations are introduced.
@@ -237,7 +237,7 @@ Samples not covered by any rule are classified using a tuned Logistic Regression
 
 This separation prevents deterministic information from being diluted by weak or noisy signals.
 
-**Result:** ~0.728 Macro F1  
+**Result:** ~0.731 Macro F1  
 This value represents the ceiling of linear separability for this task.
 
 ---
@@ -246,7 +246,7 @@ This value represents the ceiling of linear separability for this task.
 
 ### Three-Stage Model with BERT Embeddings
 
-Adding sentence-level embeddings as dense features improves performance to ~0.731, confirming that semantic representations add information, but remain constrained by linear decision boundaries.
+Adding sentence-level embeddings as dense features improves performance to ~0.733, confirming that semantic representations add information, but remain constrained by linear decision boundaries.
 
 ### Final Model – RoBERTa Fine-Tuning
 
@@ -266,7 +266,7 @@ This jump is not incremental:
 
 ## Conclusions
 
-- Linear models plateau around **0.725–0.728** due to semantic overlap and label ambiguity.  
+- Linear models plateau around **0.728–0.731** due to semantic overlap and label ambiguity.  
 - Two-stage strategies extract the maximum possible signal from linear representations.  
 - Contextual neural models are required to go beyond this limit.  
 - The final score reflects near-saturation of available information, not leakage or overfitting.
