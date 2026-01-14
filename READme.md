@@ -10,25 +10,27 @@ The project is structured as a *progressive exploration of model capacity*, rath
 ---
 ## Project Structure
 
-The repository is organized to clearly separate data, preprocessing, modeling pipelines, and experimental work.
+The repository is organized around three main areas: data, modeling pipelines, and experimentation.
 
-.
-├── data/
-│   ├── raw/                  # Original dataset (as provided)
-│   ├── processed/            # Cleaned and feature-engineered datasets
-│   └── submission/           # Final CSV files submitted to the leaderboard
-│
-├── src/
-│   ├── EDA.ipynb             # Exploratory Data Analysis
-│   ├── preprocessing.ipynb   # Base preprocessing pipeline
-│   ├── preprocessing_and_FE/ # Feature engineering and dataset construction
-│   │
-│   ├── baseline/             # Baseline linear models
-│   ├── TwoStage/             # Two-Stage linear pipeline (rules + LR)
-│   ├── Three_Stage_with_bert/# Three-Stage model with BERT embeddings
-│   └── deberta_prediction/   # Contextual model experiments (DeBERTa)
-│
-└── experiments/              # Exploratory notebooks and ablation studies
+- **`data/`**  
+  Contains all dataset variants:
+  - `raw/` – original dataset as provided  
+  - `processed/` – cleaned and feature-engineered datasets  
+  - `submission/` – final CSV files submitted to the leaderboard  
+
+- **`src/`**  
+  Hosts the canonical modeling pipelines:
+  - `EDA.ipynb` – Exploratory Data Analysis  
+  - `preprocessing.ipynb` – base preprocessing pipeline  
+  - `preprocessing_and_FE/` – feature engineering and dataset construction  
+  - `baseline/` – baseline linear models  
+  - `TwoStage/` – Two-Stage linear pipeline (rules + Logistic Regression)  
+  - `Three_Stage_with_bert/` – Three-Stage model with BERT embeddings  
+  - `deberta_prediction/` – contextual model experiments (DeBERTa)  
+
+- **`experiments/`**  
+  Contains exploratory notebooks, ablation studies, and intermediate experiments that are not part of the main pipeline but document the research process.
+
 
 ## Project Overview
 
