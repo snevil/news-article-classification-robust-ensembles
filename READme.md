@@ -42,9 +42,8 @@ The results show a clear plateau around **0.72–0.73** for linear models, follo
 The preprocessing stage is intentionally minimal and reproducible, designed to remove structural noise while preserving semantic content.
 
 ### Text Processing
-
-- HTML tags and hyperlinks removed using *BeautifulSoup*  
-- HTML entities decoded  
+ 
+- HTML entities polished  
 - Lowercasing and whitespace normalization  
 - Concatenation of `title` and `article` into a single text field  
 
