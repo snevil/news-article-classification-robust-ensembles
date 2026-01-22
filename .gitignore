@@ -1,0 +1,21 @@
+# ===== Templates / External =====
+DSL-report-template/
+
+# ===== Outputs / Logs =====
+classifica_timestamp.txt
+
+# ===== Debug / Temporary =====
+debug.ipynb
+
+# ===== Submissions / Final runs =====
+news_classifier_0_745.ipynb
+src/EDA.ipynb
+# ===== Models & Predictions =====
+src/Three_Stage_with_bert/
+src/deberta_prediction/
+hybrid_seed_ensemble/
+src/roberta_prediction/
+
+# ===== Generic safety =====
+
+.ipynb_checkpoints/
