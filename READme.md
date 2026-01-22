@@ -10,26 +10,26 @@ The project is structured as a *progressive exploration of model capacity*, rath
 ---
 ## Project Structure
 
-The repository is organized around three main areas: data, modeling pipelines, and experimentation. Each folder has a readme file explaining the entire process step by step.
+The repository is organized to clearly separate data, preprocessing, modeling pipelines, and experimental work.
 
-- **`data/`**  
-  Contains all dataset variants:
-  - `raw/` – original dataset as provided  
-  - `processed/` – cleaned and feature-engineered datasets  
-  - `submission/` – final CSV files submitted to the leaderboard  
+.
+├── data/
+│   ├── raw/                  # Original dataset (as provided)
+│   ├── processed/            # Cleaned and feature-engineered datasets
+│   └── submission/           # Final CSV files submitted to the leaderboard
+│
+├── src/
+│   ├── EDA.ipynb             # Exploratory Data Analysis
+│   ├── preprocessing.ipynb   # Base preprocessing pipeline
+│   ├── preprocessing_and_FE/ # Feature engineering and dataset construction
+│   │
+│   ├── baseline/             # Baseline linear models
+│   ├── TwoStage/             # Two-Stage linear pipeline (rules + LR)
+│   ├── Three_Stage_with_bert/# Three-Stage model with BERT embeddings
+│   └── deberta_prediction/   # Contextual model experiments (DeBERTa)
+│
+└── experiments/              # Exploratory notebooks and ablation studies
 
-- **`src/`**  
-  Hosts the canonical modeling pipelines:
-  - `EDA.ipynb` – Exploratory Data Analysis  
-  - `preprocessing.ipynb` – base preprocessing pipeline  
-  - `preprocessing_and_FE/` – feature engineering and dataset construction  
-  - `baseline/` – baseline linear models  
-  - `TwoStage/` – Two-Stage linear pipeline (rules + Logistic Regression)  
-  - `Three_Stage_with_bert/` – Three-Stage model with BERT embeddings  
-  - `deberta_prediction/` – contextual model experiments (DeBERTa)  
-
-- **`experiments/`**  
-  Contains targeted analytical notebooks whose purpose is to validate modeling assumptions and justify architectural and feature-engineering choices through controlled empirical studies on the development set.
 ## Project Overview
 
 The dataset consists of online news articles described by:
@@ -39,7 +39,8 @@ The dataset consists of online news articles described by:
 - `source`  
 - `timestamp`  
 - `label` (7 classes)
-
+- `PageRank`
+ 
 The task is multi-class classification evaluated using **Macro F1**, which strongly penalizes systematic class confusion and makes the problem particularly sensitive to overlapping semantic content.
 
 ---
@@ -52,7 +53,7 @@ The task is multi-class classification evaluated using **Macro F1**, which stron
 | Tuned Logistic Regression           | 0.728   |
 | Two-Stage Linear Model              | 0.731    
 | Three-Stage Model (BERT embeddings)| 0.733    |
-| Final Model (RoBERTa fine-tuned)    | 0.745    |
+| Final Model (deBerta fine-tuned)    | 0.745    |
 
 The results show a clear plateau around **0.72–0.73** for linear models, followed by a regime change when contextual neural representations are introduced.
 
@@ -269,7 +270,7 @@ This value represents the ceiling of linear separability for this task.
 
 Adding sentence-level embeddings as dense features improves performance to ~0.733, confirming that semantic representations add information, but remain constrained by linear decision boundaries.
 
-### Final Model – RoBERTa Fine-Tuning
+### Final Model – deBERTa Fine-Tuning
 
 - RoBERTa large  
 - 512-token context  
