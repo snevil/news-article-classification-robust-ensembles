@@ -68,13 +68,12 @@ This study shows that:
 - the model reaches a **stable plateau** once the correct representational regime is selected,
 - further gains cannot be obtained by linear feature tuning alone.
 
-After HC, all hyperparameters are optimized using **Optuna** on the development split only.
 
 WORD_NG_MAX = 2
 CHAR_NG_MAX = 5
 MIN_DF      = 2
-MAX_DF      = 0.8782583211530898
-C_VALUE     = 0.64491922705094
+MAX_DF      = 0.85
+C_VALUE     = 1
 
 
 The tuning process explores:
