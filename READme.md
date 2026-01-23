@@ -51,8 +51,7 @@ The task is multi-class classification evaluated using **Macro F1**, which stron
 |-------------------------------------|----------|
 | Baseline Logistic Regression        | 0.716    |
 | Tuned Logistic Regression           | 0.728   |
-| Two-Stage Linear Model              | 0.731    
-
+| Two-Stage Linear Model              | 0.731    |
 | Final Model (deBerta fine-tuned)    | 0.745    |
 
 The results show a clear plateau around **0.72–0.73** for linear models, followed by a regime change when contextual neural representations are introduced.

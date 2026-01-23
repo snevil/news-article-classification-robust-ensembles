@@ -9,6 +9,8 @@ debug.ipynb
 check_overlap_deberta_roberta.ipynb
 # ===== Submissions / Final runs =====
 news_classifier_0_745.ipynb
+two_stage_model_optuna_best_parameters.ipynb
+two_stage_model_submission.ipynb
 src/EDA.ipynb
 # ===== Models & Predictions =====
 src/Three_Stage_with_bert/
