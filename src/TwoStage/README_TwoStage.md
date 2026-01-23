@@ -7,7 +7,7 @@ The theoretical motivation for this design choice is discussed in detail in the 
 - `experiments/why_hot_encoding_source.ipynb`
 - `experiments/timestamp_is_already_codified.ipynb`
 - `experiments/parameter-two-stage-finding-ipynb.ipynb` 
-- `src/TwoStage/two_stage_model_optuna_best_parameters.ipynb` 
+- `src/TwoStage/optunna_two_stage_hyperparameter_tuning.ipynb` 
 --- 
 
 ## Model Overview
