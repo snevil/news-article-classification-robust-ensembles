@@ -1,10 +1,12 @@
 # Baseline Model – Linear Classification with TF-IDF  
-*(Optuna-tuned Logistic Regression)*
+*(Deterministic Single-Stage Logistic Regression)*
 
-This file implements the final **single-stage baseline model** for the news article classification task.  
-The goal of this model is to establish a strong, well-calibrated linear reference point before introducing hierarchical or neural architectures.
+This directory contains the implementation of the final **single-stage baseline model** for the news article classification task.
 
-All results reported here are obtained using **parameter tuning via Bayesian Optimization (Optuna)** on the development set only.
+The purpose of this baseline is **not** to maximize leaderboard performance, but to establish a **strong, interpretable, and fully reproducible linear reference point** before introducing hierarchical or neural architectures.
+
+The final submission model is trained using a **fixed, hardcoded configuration**, selected after an extensive exploratory analysis of the linear feature space.
+
 
 ## File Structure
 
@@ -39,19 +41,25 @@ It provides a strong reference point for measuring the benefit of more complex a
 
 ---
 
-## Parameter Optimization
+## Feature Configuration Analysis
 
-Before running Bayesian optimization, a controlled **hardcoded parameter study** was conducted in  
-`baseline-parameter-studing.ipynb` to analyze the stability of the linear model across feature configurations.
+Before fixing the final baseline configuration, a structured **hardcoded parameter study** was conducted in  
+`baseline-parameter-studying.ipynb`.
 
-The analysis reveals a **clear and stable performance jump** for the following configuration regime:
+The goal of this analysis was to identify:
 
-- `word_ng = 2`
-- `char_ng = 5`
-- `C ∈ [0.6, 1.0]`
+- stable performance regimes,  
+- sensitivity to feature design choices,  
+- the effective capacity limit of a single-stage linear model.
+
+Across a wide range of tested configurations, performance consistently converges to a narrow plateau characterized by:
+
+- `word_ng = 2`  
+- `char_ng = 5`  
+- `C ∈ [0.6, 1.0]`  
 - `max_df ∈ [0.80, 0.92]`
 
-Top configurations consistently cluster around the same region:
+Representative results are shown below:
 
 | C | max_df | word_ng | char_ng | Macro F1 |
 |---|--------|---------|---------|----------|
@@ -60,32 +68,25 @@ Top configurations consistently cluster around the same region:
 | 0.6 | 0.90 | 2 | 5 | 0.7190 |
 | 0.6 | 0.85 | 2 | 5 | 0.7188 |
 
-The improvement is **net, reproducible, and robust**, with negligible variance across nearby values.
+Key observations:
 
-
-This study shows that:
 - performance gains are driven primarily by **n-gram structure**, not fine-grained regularization,
-- the model reaches a **stable plateau** once the correct representational regime is selected,
-- further gains cannot be obtained by linear feature tuning alone.
+- once the correct representational regime is reached, improvements saturate,
+- additional linear tuning does not yield meaningful gains.
 
+This behavior indicates that the linear model has largely exhausted the information available under a single-stage formulation.
+---
+## Final Baseline Configuration
 
-WORD_NG_MAX = 2
-CHAR_NG_MAX = 5
-MIN_DF      = 2
-MAX_DF      = 0.85
-C_VALUE     = 1
+Based on the stability analysis above, the final baseline model uses the following **fixed configuration**:
 
-
-The tuning process explores:
-
-- word and character n-gram ranges,  
-- TF-IDF pruning thresholds (`min_df`, `max_df`),  
-- regularization strength (`C`) of the Logistic Regression.
-
-The objective function is **Macro F1**, ensuring balanced performance across all classes.
-
-This setup avoids manual heuristics and yields a reproducible, statistically grounded baseline.
-
+| Parameter      | Value |
+|---------------|-------|
+| WORD_NG_MAX   | 2     |
+| CHAR_NG_MAX   | 5     |
+| MIN_DF        | 2     |
+| MAX_DF        | 0.85  |
+| C_VALUE       | 1.0   |
 ---
 
 ## Design Choices
@@ -130,7 +131,7 @@ Therefore, the baseline model relies exclusively on textual and editorial signal
 
 | Model | Macro F1 (Leaderboard) |
 |------|--------------------------|
-| Baseline Linear Model (Optuna) | 0.728 |
+| Baseline Linear Model  | 0.728 |
 
 This score represents the effective ceiling of a *single-stage linear model* on this dataset.
 
