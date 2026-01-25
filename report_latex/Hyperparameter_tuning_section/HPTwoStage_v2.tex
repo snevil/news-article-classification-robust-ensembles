@@ -1,0 +1,41 @@
+\subsection{Hyperparameter Tuning}
+
+Hyperparameter tuning is conducted to assess the sensitivity and
+robustness of the proposed two-stage classifier, rather than to
+aggressively maximize performance.
+
+\subsubsection{Two-Stage Rule Parameters}
+We evaluate the impact of the minimum rule purity $\tau_p$ and
+minimum rule support $\tau_s$ on macro-averaged F1.
+Figure~\ref{fig:purity_f1} and Figure~\ref{fig:support_f1} show that
+performance increases monotonically with rule purity, while remaining
+largely stable across a broad range of support thresholds.
+
+\textbf{[INSERT FIGURE: Macro F1 vs Rule Purity]}
+\textbf{[INSERT FIGURE: Macro F1 vs Rule Support]}
+
+These results indicate a wide performance plateau, suggesting that
+the rule-based stage is not overly sensitive to the exact choice of
+thresholds once high-purity patterns are selected.
+
+\paragraph{Linear Model Regularization}
+The regularization parameter $C$ of the Stage~2 linear classifier is
+varied across a broad range.
+Figure~\ref{fig:c_f1} shows that macro-F1 remains stable for
+$C \in [0.5, 1.5]$, with only marginal degradation for larger values.
+
+\textbf{[INSERT FIGURE: Mean Macro F1 vs C]}
+
+This behavior further confirms that the probabilistic stage operates
+in a stable regime and does not require fine-grained tuning.
+
+\paragraph{Best Configurations}
+Table~\ref{tab:best_twostage} reports the top-performing configurations,
+including the corresponding rule coverage.
+
+\textbf{[INSERT TABLE: Top Two-Stage Configurations (C, purity, support, macro-F1, coverage)]}
+
+Overall, the tuning results reveal a flat optimum across a wide
+hyperparameter region.
+This indicates that the observed performance gains are driven by the
+two-stage formulation itself rather than by fragile parameter choices.

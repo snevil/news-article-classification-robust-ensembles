@@ -12,12 +12,13 @@ news_classifier_0_745.ipynb
 two_stage_model_optuna_best_parameters.ipynb
 two_stage_model_submission.ipynb
 src/EDA.ipynb
+trash_backup/
 # ===== Models & Predictions =====
 src/Three_Stage_with_bert/
 src/deberta_prediction/
 hybrid_seed_ensemble/
 src/roberta_prediction/
-
+data/submission/submission_three_stage_bert.csv
 # ===== Generic safety =====
 
 .ipynb_checkpoints/
