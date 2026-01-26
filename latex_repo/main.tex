@@ -11,7 +11,7 @@
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{placeins}
-
+\usepackage{caption}
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
@@ -48,16 +48,12 @@ beybin.cicek@studenti.polito.it}
 \input{preprocessing/PreProcessing}
 \subsection{Model selection}
 \input{Model/twostage_subsub}
-\newline
-
 \input{Model/Roberta_Deberta}
 \input{Hyperparameter_tuning_section/HPTwoStage_v2}
-\newline
 \input{Hyperparameter_tuning_section/Trasformers_HPTuning}
-
 \section{Results}
-Here you will present your results (models \& configurations selected, performance achieved)
-
+\input{Result/TwoStage_Result}
+\input{Result/Trasformers}
 \section{Discussion}
 Any relevant discussion goes here.
 

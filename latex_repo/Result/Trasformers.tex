@@ -1,0 +1,32 @@
+\subsection{Transformer and Ensemble Results}
+
+Transformer models are evaluated across RoBERTa and DeBERTa architectures
+with input lengths of 256 and 512 tokens. On the development split, no-seed
+models provide a consistent basis for comparison across configurations.
+
+Across all settings, performance converges within three fine-tuning epochs,
+with peak macro-F1 typically reached at the second or third epoch, indicating
+stable and fast convergence. Multiple random initializations are trained to
+reduce variance and support robust ensembling.
+
+Final predictions are obtained via an ensemble selected based on
+development-set performance and stability, and this ensemble is used for
+submission.
+
+\begin{table}[H]
+\centering
+\caption{Best no-seed transformer models on the development split. For each
+configuration, the highest macro-F1 score and the corresponding training
+epoch are reported.}
+\label{tab:transformer_best_dev}
+\begin{tabular}{lccc}
+\hline
+\textbf{Model} & \textbf{Max Len} & \textbf{Best Epoch} & \textbf{Macro-F1 (DEV)} \\
+\hline
+DeBERTa & 256 & 2 & 0.743 \\
+DeBERTa & 512 & 2 & 0.747 \\
+RoBERTa & 256 & 3 & 0.749 \\
+RoBERTa & 512 & 3 & \textbf{0.756} \\
+\hline
+\end{tabular}
+\end{table}

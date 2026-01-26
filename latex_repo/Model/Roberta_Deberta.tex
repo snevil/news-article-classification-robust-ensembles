@@ -1,0 +1,7 @@
+\subsubsection{Semantic-Oriented Transformer Models}
+
+Transformer-based models are used to complement the editorial bias of the
+Two-Stage classifier by modeling deeper semantic information. We fine-tune
+RoBERTa and DeBERTa using only the concatenated title and article text, without
+additional features. Predictions are treated independently and later combined
+through ensemble strategies to exploit semantic complementarity.
