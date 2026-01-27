@@ -20,6 +20,7 @@ src/deberta_prediction/
 latex_repo/
 src/roberta_prediction/
 data/submission/submission_three_stage_bert.csv
+data/submission/submission_daBerta_raw.csv
 # ===== Generic safety =====
 
 .ipynb_checkpoints/
