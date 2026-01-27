@@ -261,24 +261,108 @@ This value represents the ceiling of linear separability for this task.
 There are multiple maximum points that can be obtained by combining those parameters.
 ---
 
-## Transition to Neural Models
 
 
-### Final Model – deBERTa Fine-Tuning
-
-- RoBERTa large  
-- 512-token context  
-- Early stopping and proper validation  
-
-**Final Result:** **0.745 Macro F1**
-
-This jump is not incremental:
-
-- it reflects a change of hypothesis space,  
-- not better tuning,  
-- the score saturates rapidly, indicating proximity to the dataset’s intrinsic ceiling (~0.75).
+This section reports the best-performing transformer configurations selected on
+the development split, followed by an analysis of prediction stability across
+random seeds, sequence lengths, and architectures.
 
 ---
+
+### Transition to Neural Models Best Transformer Configurations (Development Split)
+
+| Model    | Max Length | Best Epoch | Macro-F1 (DEV) |
+|----------|------------|------------|----------------|
+| DeBERTa  | 256        | 2          | 0.743 |
+| DeBERTa  | 512        | 2          | 0.747 |
+| RoBERTa  | 256        | 3          | 0.749 |
+| RoBERTa  | 512        | 3          | **0.756** |
+
+**Interpretation.**  
+RoBERTa with longer input length yields the strongest single-model performance.
+Increasing the maximum sequence length provides consistent gains for both
+architectures, suggesting that relevant information is mostly contained within
+the first few hundred tokens, but benefits from moderate context expansion.
+
+---
+
+## Overlap and Disagreement Analysis
+
+Prediction overlap is defined as the fraction of samples receiving identical
+labels across different models. This analysis evaluates stability across random
+seeds (intra-model) and diversity across architectures.
+
+---
+
+### Intra-Model Agreement (Seed Stability)
+
+| Model | Max Length | Mean Agreement | Std | #Seeds |
+|------|------------|----------------|-----|--------|
+| DeBERTa | 512 | 0.8968 | 0.0011 | 3 |
+| DeBERTa | 256 | 0.9073 | 0.0009 | 3 |
+| RoBERTa | 512 | 0.9114 | 0.0004 | 3 |
+| RoBERTa | 256 | 0.9112 | 0.0001 | 3 |
+
+**Interpretation.**  
+All models exhibit very high intra-seed agreement with extremely low variance.
+This indicates strong optimization stability and confirms that random
+initialization contributes marginally to prediction differences.
+
+---
+
+### Cross-Architecture Overlap
+
+| Comparison | Overlap Range |
+|-----------|---------------|
+| DeBERTa ↔ RoBERTa (512) | 0.85 – 0.88 |
+| DeBERTa ↔ RoBERTa (256) | 0.84 – 0.88 |
+
+**Interpretation.**  
+Despite comparable macro-F1 scores, RoBERTa and DeBERTa show systematic
+prediction differences. This architectural diversity provides a clear rationale
+for cross-model ensembling.
+
+---
+
+### Pairwise Disagreement (Summary)
+
+| Comparison Type | Disagreement Range |
+|-----------------|-------------------|
+| Same architecture, different seed | 0.09 – 0.11 |
+| Same architecture, different length | 0.11 – 0.13 |
+| Cross-architecture | 0.13 – 0.15 |
+
+Disagreement increases when moving from seed-level variation to architectural
+variation, indicating that diversity is structural rather than noise-driven.
+
+---
+
+### Hard-Case Distribution
+
+A limited subset of samples exhibits high disagreement across models. These
+cases are concentrated in semantically overlapping categories.
+
+| Class | Percentage |
+|------|------------|
+| Entertainment | 27.35% |
+| General | 26.31% |
+| International | 20.70% |
+| Business | 11.81% |
+| Technology | 6.20% |
+| Health | 4.33% |
+| Sports | 3.29% |
+
+---
+
+### Summary
+
+The analysis shows that:
+- Transformer predictions are highly stable across random seeds.
+- Architectural differences induce meaningful diversity.
+- Ambiguity is concentrated in a small subset of samples.
+
+These findings motivate the use of weighted cross-architecture ensembles and
+selective hard-case routing rather than aggressive retraining or deep stacking.
 
 ## Conclusions
 
