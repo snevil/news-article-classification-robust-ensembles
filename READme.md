@@ -24,8 +24,7 @@ The repository is organized around three main areas: data, modeling pipelines, a
   - `preprocessing.ipynb` – base preprocessing pipeline  
   - `preprocessing_and_FE/` – feature engineering and dataset construction  
   - `baseline/` – baseline linear models  
-  - `TwoStage/` – Two-Stage linear pipeline (rules + Logistic Regression)  
-  - `Three_Stage_with_bert/` – Three-Stage model with BERT embeddings  
+  - `TwoStage/` – Two-Stage linear pipeline (rules + Logistic Regression)   
   - `deberta_prediction/` – contextual model experiments (DeBERTa)  
 
 - **`experiments/`**  
@@ -52,7 +51,6 @@ The task is multi-class classification evaluated using **Macro F1**, which stron
 | Baseline Logistic Regression        | 0.716    |
 | Tuned Logistic Regression           | 0.728   |
 | Two-Stage Linear Model              | 0.731    |
-| Final Model (deBerta fine-tuned)    | 0.745    |
 
 The results show a clear plateau around **0.72–0.73** for linear models, followed by a regime change when contextual neural representations are introduced.
 
@@ -215,8 +213,8 @@ High-purity lexical rules are mined directly from the training data.
 
 A token becomes a rule if it satisfies:
 
-- MIN_RULE_SUPPORT = 34  
-- MIN_RULE_PURITY = 0.926328564964768  
+- MIN_RULE_SUPPORT = 20
+- MIN_RULE_PURITY = 0.984162581589456  
 
 These thresholds ensure:
 
@@ -240,8 +238,8 @@ Samples not covered by any rule are classified using a tuned Logistic Regression
 - WORD_NG_MAX = 2  
 - CHAR_NG_MAX = 5  
 - MIN_DF = 2  
-- MAX_DF = 0.8782583211530898  
-- C_VALUE = 0.64491922705094  
+- MAX_DF = 0.9077050155274585 
+- C_VALUE = 0.8424574689304396  
 
 #### Motivation
 
@@ -260,14 +258,11 @@ This separation prevents deterministic information from being diluted by weak or
 
 **Result:** ~0.731 Macro F1  
 This value represents the ceiling of linear separability for this task.
-
+There are multiple maximum points that can be obtained by combining those parameters.
 ---
 
 ## Transition to Neural Models
 
-### Three-Stage Model with BERT Embeddings
-
-Adding sentence-level embeddings as dense features improves performance to ~0.733, confirming that semantic representations add information, but remain constrained by linear decision boundaries.
 
 ### Final Model – deBERTa Fine-Tuning
 
