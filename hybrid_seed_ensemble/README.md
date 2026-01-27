@@ -162,3 +162,23 @@ republished articles carrying conflicting labels.
   titles and early article segments.
 - **Selective ensembling rationale**: results motivate lightweight strategies
   (e.g., weighted averaging, entropy-based routing) over deep stacking.
+
+### Implications for Ensembling (`ensemble_analysis.ipynb`)
+
+The findings from `HARD_CASE.ipynb` directly inform the ensemble design explored
+in `ensemble_analysis.ipynb`.
+
+Given the high cross-model agreement and the extremely small fraction of
+strong cross-architecture hard cases (0.06%), complex stacking or deep ensemble
+strategies are unlikely to yield substantial gains. Most residual errors are
+either shared across all models or originate from intrinsically ambiguous
+samples.
+
+As a result, `ensemble_analysis.ipynb` focuses on:
+- **Lightweight ensemble strategies** (majority vote, weighted averaging),
+- **Robustness-oriented aggregation**, prioritizing consistency over diversity,
+- **Avoiding aggressive calibration or stacking**, which risks overfitting the
+  development split without addressing the true error sources.
+
+This design choice aligns with the observed performance plateau and reflects a
+data-driven upper bound rather than insufficient model capacity.
