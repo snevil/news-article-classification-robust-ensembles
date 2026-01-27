@@ -17,7 +17,7 @@ report_latex/
 # ===== Models & Predictions =====
 src/Three_Stage_with_bert/
 src/deberta_prediction/
-
+latex_repo/
 src/roberta_prediction/
 data/submission/submission_three_stage_bert.csv
 # ===== Generic safety =====
