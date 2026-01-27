@@ -269,7 +269,7 @@ random seeds, sequence lengths, and architectures.
 
 ---
 
-### Transition to Neural Models Best Transformer Configurations (Development Split)
+## Transition to Neural Models Best Transformer Configurations (Development Split)
 
 | Model    | Max Length | Best Epoch | Macro-F1 (DEV) |
 |----------|------------|------------|----------------|
