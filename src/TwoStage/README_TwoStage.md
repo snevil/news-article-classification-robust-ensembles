@@ -41,8 +41,8 @@ All parameters were optimized on the development set only using Bayesian Optimiz
 
 | Parameter | Value | Meaning |
 |----------|-------|---------|
-| `MIN_RULE_SUPPORT` | 34 | Minimum number of documents in which a token or pattern must appear to be considered a valid rule. This prevents spurious or dataset-specific patterns from being treated as deterministic. |
-| `MIN_RULE_PURITY` | 0.9263 | Minimum conditional class probability required for a pattern to be considered deterministic. A rule is accepted only if it assigns at least 92.6% of its occurrences to the same class, ensuring low entropy and high reliability. |
+| `MIN_RULE_SUPPORT` | 20 | Minimum number of documents in which a token or pattern must appear to be considered a valid rule. This prevents spurious or dataset-specific patterns from being treated as deterministic. |
+| `MIN_RULE_PURITY` | 0.984162581589456 | Minimum conditional class probability required for a pattern to be considered deterministic. A rule is accepted only if it assigns at least 92.6% of its occurrences to the same class, ensuring low entropy and high reliability. |
 
 These parameters control the strictness of the deterministic regime and balance coverage against precision in Stage 1.
 
@@ -52,9 +52,9 @@ These parameters control the strictness of the deterministic regime and balance 
 |----------|-------|---------|
 | `WORD_NG_MAX` | 2 | Maximum word n-gram length used in TF-IDF features. Captures short lexical patterns without introducing excessive sparsity. |
 | `CHAR_NG_MAX` | 5 | Maximum character n-gram length (word-boundary based). Useful for modeling editorial templates, markup fragments, and stylistic patterns. |
-| `MIN_DF` | 2 | Minimum document frequency for TF-IDF features, filtering out extremely rare and noisy tokens. |
-| `MAX_DF` | 0.8783 | Maximum document frequency threshold, removing overly common tokens that carry little discriminative information. |
-| `C_VALUE` | 0.6449 | Inverse regularization strength of the logistic regression classifier. Controls the trade-off between model flexibility and generalization. |
+| `MIN_DF` | 3 | Minimum document frequency for TF-IDF features, filtering out extremely rare and noisy tokens. |
+| `MAX_DF` | 0.9077050155274585 | Maximum document frequency threshold, removing overly common tokens that carry little discriminative information. |
+| `C_VALUE` | 0.8424574689304396 | Inverse regularization strength of the logistic regression classifier. Controls the trade-off between model flexibility and generalization. |
 
 ---
 
