@@ -68,3 +68,79 @@ architecture and maximum sequence length.
 - No-seed models are used as reference baselines.
 - Multi-seed variants are employed to analyze stability and prediction overlap.
 - All files are compatible with ensemble, temperature scaling, and agreement analysis pipelines.
+
+
+## Hard-Case Analysis and Model Agreement
+
+To analyze the performance limits of transformer models and the effectiveness of
+ensembling, we conduct a dedicated agreement and hard-case analysis implemented
+in `HARD_CASE.ipynb`. The analysis covers all transformer-based submissions,
+including no-seed baselines and multi-seed variants across architectures and
+input lengths.
+
+### Methodology (`HARD_CASE.ipynb`)
+The notebook performs:
+- **Global prediction overlap**: pairwise agreement matrices measuring the
+  fraction of identical predictions between models.
+- **Intra-model stability (seed analysis)**: agreement across different random
+  seeds for the same architecture and input length.
+- **Cross-architecture comparison**: agreement between DeBERTa and RoBERTa
+  variants.
+- **Disagreement-based hard-case detection**: samples with high disagreement
+  relative to the majority vote are flagged as hard cases.
+- **Class-wise analysis of hard cases** to identify systematic ambiguity.
+
+### Quantitative Findings
+
+#### Intra-model Agreement (Stability Across Seeds)
+
+| Model         | Mean Agreement | Std     | # Seeds |
+|---------------|----------------|---------|---------|
+| DeBERTa-512   | 0.8968         | 0.0011  | 3       |
+| DeBERTa-256   | 0.9073         | 0.0009  | 3       |
+| RoBERTa-512   | 0.9114         | 0.0004  | 3       |
+| RoBERTa-256   | 0.9112         | 0.0001  | 3       |
+
+**Observation.**  
+All configurations show very high intra-seed agreement with negligible variance,
+indicating that differences are driven by model capacity and input length rather
+than random initialization.
+
+#### Cross-Architecture Agreement
+Average agreement between DeBERTa and RoBERTa models lies in the **0.88–0.91**
+range (depending on input length). No-seed models exhibit slightly lower
+agreement, consistent with the absence of implicit regularization from seed
+averaging.
+
+**Observation.**  
+Despite architectural differences, models converge to highly similar predictions,
+suggesting reliance on largely overlapping signals.
+
+#### Class Distribution of Hard Cases
+
+| Class          | Count | Percentage |
+|----------------|-------|------------|
+| Entertainment  | 366   | 27.35%     |
+| General        | 352   | 26.31%     |
+| International  | 277   | 20.70%     |
+| Business       | 158   | 11.81%     |
+| Technology     | 83    | 6.20%      |
+| Health         | 58    | 4.33%      |
+| Sports         | 44    | 3.29%      |
+
+**Observation.**  
+Hard cases are concentrated in semantically overlapping categories
+(Entertainment, General, International), while specialized domains
+(Sports, Health) are rarely ambiguous, consistent with duplicated or
+republished articles carrying conflicting labels.
+
+### Key Insights
+- **Upper-bound effect**: a non-negligible fraction of errors is shared across
+  all models, indicating intrinsic dataset ambiguity.
+- **Limited ensemble headroom**: high cross-model agreement explains diminishing
+  returns from complex ensembling.
+- **Early-token dominance**: longer context windows do not reduce hard-case
+  disagreement, suggesting that most discriminative information is contained in
+  titles and early article segments.
+- **Selective ensembling rationale**: results motivate lightweight strategies
+  (e.g., weighted averaging, entropy-based routing) over deep stacking.
