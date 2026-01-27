@@ -90,6 +90,24 @@ The notebook performs:
   relative to the majority vote are flagged as hard cases.
 - **Class-wise analysis of hard cases** to identify systematic ambiguity.
 
+#### Hard-Case Severity Breakdown
+
+The hard cases identified in `HARD_CASE.ipynb` can be further stratified by the
+degree of model disagreement:
+
+- **High-entropy hard cases**: **3563 samples**  
+  Samples with near-uniform label distributions across models, reflecting
+  maximal uncertainty and intrinsic semantic ambiguity.
+
+- **Hard cases (≥ 2 models disagree)**: **6839 samples (34.20%)**  
+  A broader subset exhibiting partial disagreement, accounting for most
+  residual errors and defining the effective performance ceiling.
+
+- **Strong cross-architecture hard cases (RoBERTa vs DeBERTa)**:  
+  **11 samples (0.06%)**  
+  Cases where architectures consistently disagree despite high intra-seed
+  stability, indicating rare but genuine architectural complementarity.
+
 ### Quantitative Findings
 
 #### Intra-model Agreement (Stability Across Seeds)
