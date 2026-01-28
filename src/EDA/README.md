@@ -34,17 +34,16 @@ as an intrinsic property of the dataset rather than a preprocessing artifact.
 
 ## Missingness and Metadata Quality
 
-A basic missingness analysis reveals that:
-- the `timestamp` field contains a high fraction of missing or invalid values
-  (≈35%),
-- all other fields exhibit negligible missingness.
-Further inspection shows that timestamps exhibit coarse granularity and strong
-editorial regularities, suggesting that temporal information is largely
-*implicitly encoded in the article text itself*. An auxiliary experiment
-confirms that publication time can be predicted from raw textual content with
-non-trivial accuracy, indicating that temporal cues are already captured by
-lexical and editorial patterns. For this reason, fine-grained and explicit
-timestamp features are not emphasized in subsequent models (see
+A preliminary missingness analysis shows that the `timestamp` field exhibits a
+substantial proportion of missing or invalid values (approximately 35%),
+whereas all other metadata fields are essentially complete.
+
+Further analysis indicates that timestamp information has coarse granularity
+and follows strong editorial regularities. An auxiliary experiment confirms
+that publication time can be inferred from the raw article text with
+non-trivial accuracy, suggesting that temporal cues are already implicitly
+encoded in lexical and stylistic patterns. As a result, explicit and
+fine-grained timestamp features are not emphasized in subsequent models (see
 `experiments/timestamp_is_already_codified.ipynb`).
 
 ---
