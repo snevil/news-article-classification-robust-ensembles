@@ -38,19 +38,15 @@ A basic missingness analysis reveals that:
 - the `timestamp` field contains a high fraction of missing or invalid values
   (≈35%),
 - all other fields exhibit negligible missingness.
+Further inspection shows that timestamps exhibit coarse granularity and strong
+editorial regularities, suggesting that temporal information is largely
+*implicitly encoded in the article text itself*. An auxiliary experiment
+confirms that publication time can be predicted from raw textual content with
+non-trivial accuracy, indicating that temporal cues are already captured by
+lexical and editorial patterns. For this reason, fine-grained and explicit
+timestamp features are not emphasized in subsequent models (see
+`experiments/timestamp_is_already_codified.ipynb`).
 
-Further inspection shows that timestamps have coarse granularity and strong
-editorial regularities, suggesting that temporal information may be indirectly
-encoded in the text itself. For this reason, fine-grained temporal features are
-not emphasized in later models.
-
-Further inspection shows that timestamp information is largely *implicitly
-encoded in the article text itself*. An auxiliary experiment demonstrates that
-publication time can be predicted from raw textual content with non-trivial
-accuracy, indicating that temporal cues are already captured by lexical and
-editorial patterns.  
-For this reason, explicit timestamp features are not emphasized in subsequent
-models (see `experiments/timestamp_is_already_codified.ipynb`).
 ---
 
 ## Exact Duplicates and Label Noise
