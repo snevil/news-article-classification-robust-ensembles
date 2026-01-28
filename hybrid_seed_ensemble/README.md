@@ -182,3 +182,58 @@ As a result, `ensemble_analysis.ipynb` focuses on:
 
 This design choice aligns with the observed performance plateau and reflects a
 data-driven upper bound rather than insufficient model capacity.
+
+
+# Ensemble Submission Pipeline
+
+The directory `data/submission/ensemble_submission/` contains all submissions produced by the ensemble and hard-case routing pipeline implemented in `ensemble_analysis.py`.
+
+The pipeline combines multiple fine-tuned Transformer models using logit-level aggregation and selective routing, following standard ensemble practices for neural networks. All methods operate in logit space and aim to maximize macro-averaged F1 by balancing robustness, diversity, and uncertainty-aware specialization.
+
+## Models Used
+
+The ensemble is built from four base models:
+- RoBERTa (max length 512)
+- RoBERTa (max length 256)
+- DeBERTa (max length 512)
+- DeBERTa (max length 256)
+
+Each model contributes raw evaluation logits stored as NumPy arrays and loaded at runtime.
+
+All generated submissions are saved to `data/submission/ensemble_submission/` and follow the standard format `Id,Predicted`.
+
+## Implemented Strategies
+
+1. **Simple Average Ensemble** — File: `submission_avg.csv`  
+Unweighted mean of logits across all models. Low-variance baseline and sanity check.
+
+2. **Weighted Logit Ensemble** — File: `submission_weighted.csv`  
+Architecture- and performance-aware weighting. Stronger models (e.g., RoBERTa-512) contribute more. Main ensemble baseline.
+
+3. **Architecture-Specific Ensembles** — Files: `submission_roberta_only.csv`, `submission_deberta_only.csv`  
+Intra-architecture averaging for diagnostics and specialization. RoBERTa-only tends to perform better on ambiguous or long-context samples.
+
+4. **Hard-Case Routing (Entropy-Based)** — File: `submission_hardcase.csv`  
+Entropy is computed from weighted-ensemble probabilities. Samples above a percentile threshold are flagged as hard cases and routed to a specialist (RoBERTa).
+
+5. **Weighted + Hard-Case + Architecture Routing** — File: `submission_weighted_hardcase.csv`  
+Final and most advanced strategy. Default is the weighted ensemble. For hard cases, RoBERTa vs DeBERTa confidence (max softmax) is compared per sample and the most confident architecture is selected. This approximates a conditional ensemble.
+
+## Generated Submissions
+
+| Submission file | Strategy description | Macro-F1 (Eval) |
+|---|---|---|
+| submission_avg.csv | Simple unweighted logit average | – |
+| submission_weighted.csv | Weighted logit ensemble | – |
+| submission_roberta_only.csv | RoBERTa-only ensemble | – |
+| submission_deberta_only.csv | DeBERTa-only ensemble | – |
+| submission_hardcase.csv | Entropy-based hard-case routing | – |
+| submission_weighted_hardcase.csv | Weighted + hard-case + architecture routing | – |
+
+## Notes
+
+- No temperature scaling is applied due to incomplete development logits.  
+- The pipeline prioritizes macro-F1 over calibration metrics.  
+- Multiple submissions are generated to explore different bias–variance trade-offs.
+
+**Recommended submission:** `submission_weighted_hardcase.csv`
