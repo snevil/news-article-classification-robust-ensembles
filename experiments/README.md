@@ -3,13 +3,13 @@
 This folder contains targeted analytical notebooks whose purpose is not to train final models, but to **understand the structure of the dataset** and to **justify key architectural and feature-engineering choices** in a principled way.
 
 Each experiment isolates a specific hypothesis and validates it empirically on the development split only.  
-The results in this folder directly motivate the design of the baseline, two-stage, and three-stage pipelines.
+The results in this folder directly motivate the design of the baseline, two-stage.
 --- 
 
 ## `two_stage_parameter_finding.ipynb`
 
-This notebook explores the hyperparameters of the **Two-Stage architecture** to understand *when* rule-based intervention is beneficial, rather than to optimize leaderboard score.
-
+This notebook explores the hyperparameters of the **Two-Stage architecture** to understand *when* rule-based intervention is beneficial, rather than to optimize leaderboard score. All possible combinations are saved in`two_stage_grid_result.csv `
+ 
 The grid search evaluates combinations of:
 - **C**: regularization strength of the TF-IDF linear classifier  
 - **min rule purity**: minimum precision required for a rule to be applied  
