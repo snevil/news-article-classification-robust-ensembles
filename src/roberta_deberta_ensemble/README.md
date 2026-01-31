@@ -58,21 +58,23 @@ This section lists all submission files used for overlap analysis, ensembling, a
 - All files are compatible with ensemble, temperature scaling, and agreement analysis pipelines.
 
 ---
-
 # Hard-Case Analysis and Model Agreement
 
-To analyze the performance limits of transformer models and the effectiveness of ensembling, we conduct a dedicated agreement and hard-case analysis implemented in `HARD_CASE.ipynb`. The analysis covers all transformer-based submissions, including no-seed baselines and multi-seed variants across architectures and input lengths.
+To analyze the performance limits of transformer models and the effectiveness
+of ensembling, we conduct a dedicated agreement and hard-case analysis based
+on evaluation-time predictions from all transformer-based submissions.
+The analysis covers no-seed baselines and multi-seed variants across
+architectures and input lengths.
 
-## Methodology (`HARD_CASE.ipynb`)
+## Methodology
 
-The notebook performs:
+The analysis includes:
 
 - Global prediction overlap: pairwise agreement matrices measuring the fraction of identical predictions between models.
 - Intra-model stability (seed analysis): agreement across different random seeds for the same architecture and input length.
 - Cross-architecture comparison: agreement between DeBERTa and RoBERTa variants.
-- Disagreement-based hard-case detection: samples with high disagreement relative to the majority vote.
-- Class-wise analysis of hard cases to identify systematic ambiguity.
-
+- Disagreement-based hard-case detection: samples exhibiting high model disagreement relative to the majority prediction.
+- Class-wise analysis of hard cases to identify systematic sources of semantic ambiguity.
 ---
 
 ## Hard-Case Definitions and Severity Breakdown
@@ -103,9 +105,9 @@ Multiple definitions of hard cases are used for different analytical purposes:
 | Model        | Mean Agreement | Std     | # Seeds |
 |--------------|----------------|---------|---------|
 | DeBERTa-512  | 0.8968         | 0.0011  | 3 |
-| DeBERTa-256  | 0.9073         | 0.0009  | 3 |
-| RoBERTa-512  | 0.9114         | 0.0004  | 3 |
-| RoBERTa-256  | 0.9112         | 0.0001  | 3 |
+| DeBERTa-256  | 0.9073         | 0.0029  | 3 |
+| RoBERTa-512  | 0.9114         | 0.0028  | 3 |
+| RoBERTa-256  | 0.9112         | 0.0007  | 3 |
 
 **Observation.**  
 All configurations show very high intra-seed agreement with negligible variance, indicating that differences are driven by model capacity and input length rather than random initialization.
