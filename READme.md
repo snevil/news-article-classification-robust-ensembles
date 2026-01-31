@@ -17,7 +17,7 @@ The repository is organized around three main areas: data, modeling pipelines, a
   - `raw/` – original dataset as provided  
   - `processed/` – cleaned and feature-engineered datasets  
   - `submission/` – final CSV files submitted to the leaderboard  
-
+  - `figures/` – any relevant figures  
 - **`src/`**  
   Hosts the canonical modeling pipelines:
   - `EDA.ipynb` – Exploratory Data Analysis  
