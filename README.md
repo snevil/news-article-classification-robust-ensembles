@@ -12,6 +12,11 @@ to contextual neural representations.
 The project is structured as a **progressive exploration of model capacity**,
 rather than a pure hyperparameter tuning exercise.
 
+### Competition Result
+The final system achieved **1st place out of 220 participants** on the official
+course leaderboard, reflecting a strong balance between performance, robustness,
+and methodological soundness under realistic data noise and distributional
+biases.
 ---
 
 ## Project Structure
