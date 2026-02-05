@@ -1,5 +1,6 @@
-# Data Science and Machine Learning Lab  
+# News Article Classification with Robust Ensembles
 ## News Article Classification – Full Modeling Pipeline
+##  Data Science and Machine Learning Lab  
 
 This repository documents the complete experimental pipeline developed for the
 *Data Science and Machine Learning Lab* project at Politecnico di Torino.
