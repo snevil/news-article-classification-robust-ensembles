@@ -35,8 +35,7 @@ the overall pipeline.
 
 - **`src/`**  
   Canonical modeling pipelines:
-  - `EDA.ipynb` – Exploratory Data Analysis  
-  - `preprocessing.ipynb` – base preprocessing pipeline  
+  - `EDA/` – Exploratory Data Analysis  
   - `preprocessing_and_FE/` – feature engineering and dataset construction  
   - `baseline/` – baseline linear models  
   - `TwoStage/` – Two-Stage linear pipeline (rules + Logistic Regression)  
