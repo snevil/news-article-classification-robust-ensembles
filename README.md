@@ -1,5 +1,6 @@
-# Data Science and Machine Learning Lab  
+# News Article Classification with Robust Ensembles
 ## News Article Classification – Full Modeling Pipeline
+##  Data Science and Machine Learning Lab  
 
 This repository documents the complete experimental pipeline developed for the
 *Data Science and Machine Learning Lab* project at Politecnico di Torino.
@@ -12,6 +13,11 @@ to contextual neural representations.
 The project is structured as a **progressive exploration of model capacity**,
 rather than a pure hyperparameter tuning exercise.
 
+### Competition Result
+The final system achieved **1st place out of 220 participants** on the official
+course leaderboard, reflecting a strong balance between performance, robustness,
+and methodological soundness under realistic data noise and distributional
+biases.
 ---
 
 ## Project Structure
@@ -29,8 +35,7 @@ the overall pipeline.
 
 - **`src/`**  
   Canonical modeling pipelines:
-  - `EDA.ipynb` – Exploratory Data Analysis  
-  - `preprocessing.ipynb` – base preprocessing pipeline  
+  - `EDA/` – Exploratory Data Analysis  
   - `preprocessing_and_FE/` – feature engineering and dataset construction  
   - `baseline/` – baseline linear models  
   - `TwoStage/` – Two-Stage linear pipeline (rules + Logistic Regression)  
